@@ -1,0 +1,35 @@
+micromamba run -n regenie regenie --bt \
+    --step 2 \
+	--keep ${1}.eur.sample.eid.dat \
+	--phenoFile phenome_20230919.txt \
+    --phenoCol ${2} \
+    --firth \
+    --firth-se \
+    --approx \
+    --pred  prs/${1}.${2}.prs.step_1_pred.list \
+    --pgen wes_plink2/ukb23157_processed_qc \
+    --covarFile panukb_QT_covars.txt \
+    --covarColList sex,age,age_sex,age2,PC{1:20} \
+    --catCovarList assessment_center \
+    --maxCatLevels 22 \
+    --bsize 500 \
+    --set-list mask_files/ukbb.setid.annotated.cadd.am.tsv.gz \
+    --mask-def mask_files/new_maskdef.tsv \
+    --anno-file mask_files/ukbb.wes.cadd.am.annotations.tsv.gz \
+    --exclude-sets mask_files/exclude.setid.list.tsv \
+    --exclude mask_files/variant.exclusion.list.dat \
+    --write-mask-snplist \
+    --minMAC 5 \
+    --niter 100 \
+    --vc-MACthr 10 \
+    --vc-maxAAF 0.01 \
+    --skato-rho 0,0.01,0.04,0.09,0.16,0.25,0.36,0.5,0.64,0.81,1 \
+    --vc-tests skato,acato-full \
+    --rgc-gene-p \
+    --rgc-gene-def mask_files/rgc.maskdef.tsv \
+    --check-burden-files \
+    --gz \
+    --out ${1}/${2}/pheno.${2}.chrom.${3}.burden.loco \
+    --threads 2 \
+    --chr ${3}
+    #--use-prs \

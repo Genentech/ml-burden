@@ -1,0 +1,29 @@
+micromamba run -n regenie regenie --bt \
+    --step 2 \
+	--keep ${1}.eur.excluded.sample.eid.dat \
+	--phenoFile phenome_20230919.txt \
+    --phenoCol ${2} \
+    --firth \
+    --firth-se \
+    --approx \
+    --pred  prs/${1}.${2}.prs.step_1_pred.list \
+    --pgen wes_plink2/ukb23157_processed_qc \
+    --covarFile panukb_QT_covars.txt \
+    --covarColList sex,age,age_sex,age2,PC{1:20} \
+    --catCovarList assessment_center \
+    --maxCatLevels 22 \
+    --bsize 500 \
+    --set-list mask_files/ukbb_setlist.tsv.gz \
+    --mask-def mask_files/new_maskdef.tsv \
+    --anno-file mask_files/ukbb_cadd_am_annotation.tsv.gz \
+    --exclude-sets mask_files/exclude.setid.list.tsv \
+    --write-mask-snplist \
+    --vc-maxAAF 0.01 \
+    --rgc-gene-p \
+    --rgc-gene-def mask_files/rgc.maskdef.tsv \
+    --check-burden-files \
+    --gz \
+    --out rerun/${1}.pheno.${2}.chrom.${3}.burden \
+    --threads 4 \
+    --chr ${3}
+    #--use-prs \

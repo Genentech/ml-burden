@@ -1,0 +1,22 @@
+micromamba -n regenie run regenie --step 1 \
+    --bt \
+    --bed step1_inputs/ukb_array \
+    --extract step1_inputs/ukbb.qc.alt.prune.in \
+    --keep unrelated.eur.sample.eid.dat \
+	--phenoFile phenome_20230919.txt \
+    --phenoCol ${1} \
+	--covarFile panukb_QT_covars.txt \
+    --covarColList sex,age,age_sex,age2,PC{1:20} \
+    --catCovarList assessment_center \
+	--maxCatLevels 22 \
+    --print-prs \
+	--loocv \
+	--bsize 1000 \
+	--l1 21 \
+    --niter 100 \
+    --print \
+    --lowmem \
+    --lowmem-prefix prs/unrelated.${1}.prs.tmpdir \
+	--out prs/unrelated.${1}.prs.step_1 \
+    --threads 4 \
+    --gz
