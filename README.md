@@ -1,8 +1,8 @@
 # Markedly divergent performance of variant annotation methods for gene-level association testing
 
-This is the code release for "Markedly divergent performance of variant annotation methods for gene-level association testing" (Irudayanathan and Aguirre, _et. al._, 2026; link forthcoming). We provide analysis code in this repository as-is under an MIT license to support the reproducibility of our work. 
+This is the code release for "[Markedly divergent performance of variant annotation methods for gene-level association testing](https://doi.org/10.1186/s12864-026-13379-2)" (Irudayanathan and Aguirre, _et. al._, _BMC Genomics_ 2026). We provide analysis code in this repository as-is under an MIT license to support the reproducibility of our work. 
 
-The data release, which comprises variant scores and association test summary statsitics, can be found on Figshare (link forthcoming).
+The data release, which comprises variant scores and association test summary statitics, can be found on [Figshare](https://doi.org/10.6084/m9.figshare.32248455).
 
 ## Contents
 
